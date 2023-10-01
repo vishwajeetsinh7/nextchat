@@ -19,7 +19,6 @@ const AuthForm = () => {
 
   const session = useSession()
   const router = useRouter()
-  console.log(session)
 
   useEffect(() => { 
     if(session?.status === 'authenticated') { 
@@ -54,7 +53,6 @@ const AuthForm = () => {
     setIsLoading(true);
 
     if (variants === "REGISTER") {
-      console.log(data, 'client getting data')
       axios.post('/api/register', data)
       .then(() =>     signIn('credentials', data))
       .catch(() => toast.error('something went wrong'))

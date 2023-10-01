@@ -6,6 +6,7 @@ import DesktopItem from './DesktopItem'
 import { icons } from "react-icons"
 import { User } from "@prisma/client"
 import Avatar from "../Avatar"
+import SettingsModal from "./SettingsModal"
 
 interface DesktopSidebarProps { 
     currentUser: User
@@ -16,10 +17,14 @@ const DesktopSideBar: React.FC <DesktopSidebarProps> = ({
 }) => { 
     const routes = useRoutes()
     const [isOpen, setIsOpen] = useState(false)
-    console.log(currentUser, 'curruser')
-
 
     return ( 
+        <>
+        <SettingsModal
+             currentUser={currentUser}
+             isOpen={isOpen}
+             onClose={() => setIsOpen(false)}
+        />
         <div className="
          hidden
          lg:fixed
@@ -87,6 +92,7 @@ const DesktopSideBar: React.FC <DesktopSidebarProps> = ({
 
             </nav>
         </div>
+        </>
     )
 }
 
