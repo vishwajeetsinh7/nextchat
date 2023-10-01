@@ -9,7 +9,7 @@ import { pusherClient } from "@/app/libs/pusher"
 import { curry, find } from "lodash"
 
 interface BodyProps { 
-    initialMessages: FullMessageType[]
+    initialMessages: FullMessageType[] 
 }
 
 const Body: React.FC <BodyProps> = ({ 
